@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { FaFile, FaChevronDown, FaChevronRight } from 'react-icons/fa';
-import { FileIcon, defaultStyles } from 'react-file-icon';
+import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import FileIcon from './FileIcon';
 
 
 const getIconForDirectoryOrFile = (isDir, isOpen, name) => {
   if (!isDir) {
     return {
-      icon: GetIconForFileType, props:{name}
+      icon: FileIcon, props:{name}
     };
   }
 
@@ -15,14 +15,7 @@ const getIconForDirectoryOrFile = (isDir, isOpen, name) => {
   };
 };
 
-const GetIconForFileType = ({name}) => {
-  let icon = FaFile;
-  const extension = name.split('.')[1]
-  if(extension){
-    icon = <FileIcon extension={extension} {...defaultStyles[extension]} size="12px" />;
-  }
-  return icon;
-};
+
 
 
 
