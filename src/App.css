@@ -26,6 +26,8 @@ h1 {
 }
 .title svg {
   margin-right: 5px;
+  height: 12px;
+  width: 12px;
 }
 .title p {
   margin: 0;

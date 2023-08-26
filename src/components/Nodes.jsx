@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { FaFile, FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { FileIcon, defaultStyles } from 'react-file-icon';
 
-const getIconForDirectoryOrFile = (isDir, isOpen) => {
+
+const getIconForDirectoryOrFile = (isDir, isOpen, name) => {
   if (!isDir) {
     return {
-      icon: FaFile
+      icon: GetIconForFileType, props:{name}
     };
   }
 
@@ -13,13 +15,23 @@ const getIconForDirectoryOrFile = (isDir, isOpen) => {
   };
 };
 
+const GetIconForFileType = ({name}) => {
+  let icon = FaFile;
+  const extension = name.split('.')[1]
+  if(extension){
+    icon = <FileIcon extension={extension} {...defaultStyles[extension]} size="12px" />;
+  }
+  return icon;
+};
+
 
 
 const Node = ({ isDir, name, id, children, level  }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const config = getIconForDirectoryOrFile(isDir, isOpen);
+  const config = getIconForDirectoryOrFile(isDir, isOpen, name);
   const Icon = config.icon;
+  const iconProps = config.props;
 
   const handleTitleClick = () => {
     if (isDir) {
@@ -33,7 +45,7 @@ const Node = ({ isDir, name, id, children, level  }) => {
       <div className="branch" style={{ paddingLeft: `calc(${level} * 12px)` }}>
         <div className="entry">
           <div className="title" onClick={handleTitleClick}>
-            <Icon /><p className={isOpen ? "active" : ''}>{name}</p>
+            <Icon {...iconProps}/><p className={isOpen ? "active" : ''}>{name}</p>
           </div>
         </div>
       </div>
