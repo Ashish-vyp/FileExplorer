@@ -1,15 +1,15 @@
 import './App.css';
 
+import React from 'react';
+import DirectoryComponent from './components/Directory';
+import DirectoryProvider from './containers/DirectoryProvider';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          File Explorer
-        </p>
-      </header>
-    </div>
+    <DirectoryProvider>
+      <DirectoryComponent />
+    </DirectoryProvider>
   );
 }
 
-export default App;
+export default React.memo(App);
