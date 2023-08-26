@@ -17,14 +17,14 @@ const deepFindParentById = (id, data) => {
 
 
   const getDirectoryListWithChilds = (arr) => {
-    const result = new Array();
+    const result = [];
   
     for (const item of arr) {
       if (item.parent) {
         const parent = deepFindParentById(item.parent, result);
         if (parent) {
           if (!parent.children) {
-            parent.children = new Array();
+            parent.children = [];
           }
           parent.children.push(_.cloneDeep(item));
         }
