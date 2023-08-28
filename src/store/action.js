@@ -1,5 +1,5 @@
 import { ACTION_TYPES } from './../constant.js';
-import { fetchDirectories, editNodeName } from '../service/directory.js';
+import { fetchDirectories } from '../service/directory.js';
 
 
 export const toggleContentVisibility = () => {
