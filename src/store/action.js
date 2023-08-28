@@ -1,5 +1,5 @@
 import { ACTION_TYPES } from './../constant.js';
-import { fetchDirectories } from '../service/directory.js';
+import { fetchDirectories, editNodeName } from '../service/directory.js';
 
 
 export const toggleContentVisibility = () => {
@@ -16,4 +16,12 @@ export const fetchDirectoriesAction = async (dispatch) => {
   } catch (error) {
     dispatch({type: ACTION_TYPES.ERROR_FETCH_DIRECTORIES})
   }
-}
+};
+
+
+export const editNodeNameAction =  (payload) => {
+  return {
+    type: ACTION_TYPES.EDIT_NODE,
+    payload
+  }
+};

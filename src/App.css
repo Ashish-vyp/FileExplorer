@@ -1,34 +1,42 @@
 * {
   color: white;
 }
+
 body {
   font-family: sans-serif;
   background: #151515;
 }
+
 h1 {
   font-size: 1.5rem;
 }
+
 .container {
   width: 300px;
   margin: 40px 0px 0px 40px;
   border: 1px solid #979797;
 }
+
 .container .header {
   display: flex;
   justify-content: space-between;
   padding: 10px 16px;
   border-bottom: 1px solid rgba(151, 151, 151, 0.8);
 }
+
 .title {
   display: flex;
   align-items: center;
   cursor: pointer;
+  flex-grow: 1;
 }
+
 .title svg {
   margin-right: 5px;
   height: 12px;
   width: 12px;
 }
+
 .title p {
   margin: 0;
   font-weight: bold;
@@ -45,6 +53,7 @@ h1 {
 .content {
   padding: 10px 16px;
 }
+
 .branch {
   max-width: 100%;
   display: flex;
@@ -52,6 +61,7 @@ h1 {
   transition: all 0.2s ease-in-out;
   margin-top: 10px;
 }
+
 .branch .entry {
   display: flex;
   justify-content: space-between;
@@ -65,12 +75,13 @@ h1 {
 .branch:first-child {
   margin-top: 5px;
 }
+
 .branch .branch_leaf {
   display: flex;
   flex-direction: column;
 }
 
-.loader{
+.loader {
   height: 100px;
   display: flex;
   justify-content: center;
@@ -87,10 +98,15 @@ h1 {
 }
 
 @keyframes spin {
-from {
-  transform: rotate(0deg);
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
-to {
-  transform: rotate(360deg);
-}
+
+.editNodeInput {
+  background-color: #151515;
 }

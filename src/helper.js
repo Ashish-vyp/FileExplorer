@@ -1,11 +1,11 @@
 import _ from "lodash";
 
-const deepFindParentById = (id, data) => {
+const deepFindNodeById = (id, data) => {
     for (const ele of data) {
       if (ele.id === id) {
         return ele;
       } else if (ele.children) {
-        const result = deepFindParentById(id, ele.children);
+        const result = deepFindNodeById(id, ele.children);
         if (result) {
           return result;
         }
@@ -21,7 +21,7 @@ const deepFindParentById = (id, data) => {
   
     for (const item of arr) {
       if (item.parent) {
-        const parent = deepFindParentById(item.parent, result);
+        const parent = deepFindNodeById(item.parent, result);
         if (parent) {
           if (!parent.children) {
             parent.children = [];
@@ -38,6 +38,6 @@ const deepFindParentById = (id, data) => {
   
 
 export {
-    deepFindParentById,
+    deepFindNodeById,
     getDirectoryListWithChilds
 }

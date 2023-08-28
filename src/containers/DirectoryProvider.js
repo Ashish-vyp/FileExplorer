@@ -8,10 +8,10 @@ const DirectoryProvider = (props) => {
     const initialRef = useRef(true);
 
     useEffect(()=>{
-        if (initialRef.current) {
+         if (initialRef.current) {
             fetchDirectoriesAction(dispatch);
             initialRef.current = false;
-        }
+         }
     },[])
 
     const memoizedState = useMemo(()=>{

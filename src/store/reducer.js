@@ -1,6 +1,4 @@
 import { ACTION_TYPES } from '../constant';
-import { getDirectoryListWithChilds } from './../helper';
-
 
 const initialState = {
     nodes: [],
@@ -18,7 +16,7 @@ const directoryReducer = (state, action) => {
 
     case ACTION_TYPES.SET_DIRECTORIES:
       const response =  [...action.payload?.data]
-      const nodes = getDirectoryListWithChilds(response);
+      const nodes = response;
       return {
         ...state,
         isLoading: false,
@@ -39,6 +37,19 @@ const directoryReducer = (state, action) => {
         ...state,
         showContents: !state.showContents,
       };
+
+    case ACTION_TYPES.EDIT_NODE: 
+      const {id, newName} = action.payload;
+      const updatedNodes = state.nodes.map(node=>{
+        if(node.id === id){
+          node.name = newName
+        };
+        return node;
+      })
+      return {
+        ...state,
+        nodes : updatedNodes
+    }
     
 
     default: {
