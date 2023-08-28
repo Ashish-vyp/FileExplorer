@@ -8,11 +8,12 @@ import { getDirectoryListWithChilds } from '../helper';
 
 const DirectoryComponent = () => {
     const {showContents, nodes, dispatch, isLoading} = useDirectoryContext();
-    const nodesListWithChild = useMemo(()=>getDirectoryListWithChilds(nodes));
+    const nodesListWithChild = useMemo(()=>getDirectoryListWithChilds(nodes), [nodes]);
     
     return (
         <section className="container">
         <div className="header">
+
           <div
             className="title"
             onClick={() => dispatch(toggleContentVisibility())}
